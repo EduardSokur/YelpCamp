@@ -1,0 +1,135 @@
+body, .btn {
+  font-family: 'Oswald', sans-serif;
+}
+
+.login, .signUp, .forgot, .reset {
+  padding-top: 20vh;
+}
+
+.form-group {
+  margin: 10px auto;
+  width: 30%;
+}
+
+#newCampH1, #newCampLocationH3, 
+#allCampsButtonShowPage, #loginH1, #signUp, #forgotH1, #resetH1 {
+  text-align: center;
+}
+
+#trademark {
+  text-align: center;
+  margin-top: 3vh;
+}
+
+#allCampsButtonShowPage {
+  padding: 2px 0;
+}
+
+.jumbotron-title {
+  text-shadow: 2px 2px 2px gray;
+  font-family: 'Lobster', cursive;
+}
+
+#jumbotron-subtitle {
+  letter-spacing: 0.05em;
+}
+
+.jumbotron {
+  color: whitesmoke;
+  text-align: center;
+  margin: 0 auto;
+  display: grid;
+  place-items: center;
+  height: 35em;
+  background-image: url("https://cdn.pixabay.com/photo/2020/05/11/20/24/girl-5160131_960_720.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  margin-bottom: 3vh;
+  background-position: 50% 40%;
+}
+
+@media screen and (max-width: 768px) {
+  #campgroundsJumbotronTitle {
+    display: none;
+  }
+}
+@media screen and (max-width: 590px) {
+  .row.main {
+    display: flex;
+    place-items: center;
+    margin: 0 auto;
+  }
+}
+
+.vertical-align {
+  display: flex;
+  align-items: center;
+}
+
+#price {
+  margin: 0 0;
+}
+
+#description, #location {
+  margin: 1.5rem auto;
+}
+
+#comment-button {
+  justify-content: center;
+}
+
+ul {
+  list-style-type: none;
+  padding: 1px 0;
+}
+
+
+.delete-form {
+  display: inline;
+}
+
+#comments-section {
+  float: right;
+  overflow: auto;
+}
+
+.show_content {
+  margin-top: 7vh;
+}
+
+.container-alert {
+  position: absolute;
+  text-align: center;
+  margin-top: 60px;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+#map {
+  height: 30vh;
+  width: 100%;
+  left: 0;
+  right: 0;
+  margin: 4px 0;
+}
+
+#campgroundsImage {
+  object-fit: cover;
+  height: 25vh;
+}
+
+.ui.link.cards {
+  margin-bottom: 4px; 
+}
+
+.moreInfoButton {
+  margin-top: 2px auto;
+  justify-content: center;
+}
+
+.navbarOnScroll {
+background: #bdc3c7;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to top, #2c3e50, #bdc3c7);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to top, #2c3e50, #bdc3c7); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}

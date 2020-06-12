@@ -1,0 +1,26 @@
+<%- include("./partials/header") %>
+
+<div class="login">
+  <h1 id="loginH1">Login</h1>
+
+  <form action="/login" method="POST">
+    <div class="form-group row">
+      <label for="loginUserName">Username</label>
+      <input class="form-control" type="text" name="username" placeholder="username" id="loginUserName" />
+    </div>
+    <div class="form-group row">
+      <label for="loginPassword">Password</label>
+      <input class="form-control" type="password" name="password" placeholder="password" id="loginPassword" />
+    </div>
+    <div class="form-group row">
+      <input class="btn btn-primary btn-block" type="submit" value="Login!" />
+    </div>
+    <div class="form-group row">
+      <a href="/forgot" class="btn btn-warning btn-block">Forgot Password</a>
+    </div>
+    <div class="form-group row">
+      <a href="/campgrounds/" class="btn btn-danger btn-block">Cancel</a>
+    </div>
+  </form>
+</div>
+<%- include("./partials/footer") %>

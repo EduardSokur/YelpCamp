@@ -1,0 +1,89 @@
+<%- include("../partials/header") %>
+
+<div class="container show_content">
+  <div class="row">
+    <div class="col-md-3">
+      <p class="lead">YelpCamp</p>
+      <div class="list-group">
+        <li class="list-group-item active">Info 1</li>
+        <li class="list-group-item">Info 2</li>
+        <li class="list-group-item">Info 3</li>
+      </div>
+      <div id="map">
+      </div>
+      <div id="allCampsButtonShowPage">
+        <a href="/campgrounds" class="btn btn-primary btn-block">Back to campgrounds</a>
+      </div>
+    </div>
+    <div class="col-md-9">
+      <div class="card">
+        <img class="card-img-top" src="<%=campground.image%>" alt="" />
+        <div class="card-body">
+          <div class="row justify-content-between vertical-align">
+            <div class="col-12 col-md-auto mr-auto">
+              <h1><%=campground.name%></h1>
+            </div>
+            <div class="col-12 col-md-auto">
+              <h4 id="price">$<%= campground.price %>/night</h4>
+            </div>
+          </div>
+          <p id="location"><i><%= campground.formattedAddress %></i></p>
+          <p id="description"><%=campground.description%></p>
+          <em>
+            <p>Submitted by <%= campground.author.username %></p>
+          </em>
+          <% if(currentUser && campground.author.id.equals(currentUser._id) || currentUser && currentUser.isAdmin){ %>
+          <a class="btn btn-warning btn-sm" href="/campgrounds/<%= campground._id %>/edit">Edit</a>
+          <form class="delete-form" action="/campgrounds/<%= campground._id %>?_method=DELETE" method="POST">
+            <button class="btn btn-danger btn-sm">Delete</button>
+          </form>
+          <% } %>
+        </div>
+      </div>
+      <div>
+        <ul>
+          <% campground.comments.forEach(function(comment){ %>
+          <li>
+            <strong><%= comment.author.username %></strong>
+            <p><%= comment.text %></p>
+            <% if(currentUser && comment.author.id.equals(currentUser._id) || currentUser && currentUser.isAdmin){ %>
+            <a href="/campgrounds/<%= campground._id %>/comments/<%= comment._id %>/edit"
+              class="btn btn-warning btn-sm">Edit</a>
+            <form class="delete-form"
+              action="/campgrounds/<%= campground._id %>/comments/<%= comment._id %>?_method=DELETE" method="POST">
+              <button class="btn btn-danger btn-sm">Delete</button>
+            </form>
+            <% } %>
+          </li>
+          <% }) %>
+        </ul>
+      </div>
+      <div>
+        <p>
+          <a id="comments-section" class="btn btn-success" href="/campgrounds/<%= campground._id %>/comments/new">Add
+            new comment</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script>
+  var map;
+  function initMap() {
+    var lat = <%= campground.location.latitude %>;
+    var lng = <%= campground.location.longitude %>;
+    map = new google.maps.Map(document.getElementById('map'), {
+      center: { lat: lat, lng: lng },
+      zoom: 11
+    });
+    // The marker, positioned at lat and lng
+    var marker = new google.maps.Marker({ position: { lat: lat, lng: lng }, map: map });
+  }
+</script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC0ks0bMhxMt0iesvGLEzfwfFje-CDrLKM&callback=initMap" async
+  defer></script>
+
+<%- include("../partials/footer") %>

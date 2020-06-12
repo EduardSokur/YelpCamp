@@ -1,0 +1,16 @@
+<%- include("./partials/header") %>
+
+<div class="forgot">
+    <h1 id="forgotH1">Forgot Password</h1>
+
+    <form action="/forgot" method="POST">
+        <div class="form-group row">
+            <label for="email">Email</label>
+            <input class="form-control" type="email" name="email" placeholder="max.mustermann@gmx.com">
+        </div>
+        <div class="form-group row">
+            <input type="submit" class="btn btn-warning btn-block" value="Reset Password">
+        </div>
+    </form>
+</div>
+<%- include("./partials/footer") %>
